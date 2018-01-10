@@ -1,0 +1,78 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+
+<dom-module id="quote">
+
+
+  <template>
+
+    <style>
+      /* local styles go here */
+      :host {
+        display: inline-block;
+      }
+      iron-icon {
+        fill: rgba(0,0,0,0);
+        stroke: currentcolor;
+      }
+      :host([pressed]) iron-icon {
+        fill: currentcolor;
+      }
+      #gen {
+  outline: none;
+  padding-top: 5px;
+  text-decoration: none;
+  opacity: 0.6;
+  background-color: black;
+  color: white;
+  border: thin solid white;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+#gen:hover {
+  background-color: white;
+  color: black;
+  border: thin solid black;
+  opacity: 0.8;
+}
+
+#gen a {
+  text-decoration: none;
+}
+    </style>
+    <div id="content">
+        <p id="quote"></p>
+        <button id="gen" onclick="genQuote()">New Quote</button>
+      </div>
+    </div>
+
+    <!-- local DOM goes here -->
+    <iron-icon icon="polymer">
+    </iron-icon>
+  </template>
+  <script>
+  function genQuote() {
+var randNum = Math.floor(Math.random() * 8) + 1;
+document.getElementById('quote').innerHTML = quotes[randNum];
+// var tweetQuote = quotes[randNum].split(' ').join('%20');
+// tweetQuote = tweetQuote.split('<br>').join('');
+// tweetQuote = "https://twitter.com/intent/tweet?text=" + tweetQuote.split('"').join('')
+// $('.twitter-share-button').attr('href', tweetQuote);
+}
+
+//quote array
+  var quotes = ["Blank", "\"Dude, suckin' at something is the first step at being sorta good at something.\"<br>-  Jake <small><em>(Adventure Time)</em></small>", "\"Either I will find a way, or I will make one.\"<br> - Philip Sidney", "\"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.\"<br>- Thomas A. Edison", "\"You are never too old to set another goal or to dream a new dream.\"<br>- C.S Lewis", "\"If you can dream it, you can do it.\"<br>- Walt Disney", "\"Never give up, for that is just the place and time that the tide will turn.\"<br>- Harriet Beecher Stowe", "\"I know where I'm going and I know the truth, and I don't have to be what you want me to be. I'm free to be what I want.\"<br>- Muhammad Ali", "\"If you always put limit on everything you do, physical or anything else. It will spread into your work and into your life. There are no limits. There are only plateaus, and you must not stay there, you must go beyond them.\"<br>- Bruce Lee",];
+
+  </script>
+  <script>
+  Polymer({
+    is: 'quote',
+  });
+  </script>
+
+</dom-module>
