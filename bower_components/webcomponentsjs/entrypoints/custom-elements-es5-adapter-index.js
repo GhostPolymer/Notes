@@ -10,12 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 'use strict';
 
 /*
- * Polyfills loaded: HTML Imports, Custom Elements
- * Used in: Safari 10, Firefox once SD is shipped
+ * Polyfills loaded: Custom Elements ES5 Shim
  */
 
-import '../node_modules/@webcomponents/html-imports/src/html-imports.js';
-import '../node_modules/@webcomponents/custom-elements/src/custom-elements.js';
-
-import '../src/post-polyfill.js';
-import '../src/unresolved.js';
+import '../node_modules/@webcomponents/custom-elements/src/native-shim.js';
