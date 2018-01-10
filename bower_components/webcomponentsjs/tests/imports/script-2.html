@@ -7,26 +7,9 @@
     Code distributed by Google as part of the polymer project is also
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
+<div>me2</div>
 <script>
-(function() {
-
-  window.a1DocsList = [];
-
-  class A1 extends HTMLElement {
-    connectedCallback() {
-      a1DocsList.push(this.ownerDocument.baseURI.split('/').pop());
-      this.isA1 = true;
-    }
-  }
-  window.customElements.define('a-1', A1);
-
-
-  class SpecialStyle extends HTMLStyleElement {
-    connectedCallback() {
-      window.styleAppliedToDocument = Boolean(this.__appliedElement);
-    }
-  }
-  window.customElements.define('special-style', SpecialStyle);
-
-})();
+  var d = document._currentScript.ownerDocument.querySelector('div');
+  assert.equal(d.innerText, 'me2', '_currentScript can locate element in import')
 </script>
+<link rel="import" href="script-2.html">

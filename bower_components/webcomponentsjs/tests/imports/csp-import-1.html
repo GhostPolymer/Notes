@@ -7,26 +7,5 @@
     Code distributed by Google as part of the polymer project is also
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<script>
-(function() {
-
-  window.a1DocsList = [];
-
-  class A1 extends HTMLElement {
-    connectedCallback() {
-      a1DocsList.push(this.ownerDocument.baseURI.split('/').pop());
-      this.isA1 = true;
-    }
-  }
-  window.customElements.define('a-1', A1);
-
-
-  class SpecialStyle extends HTMLStyleElement {
-    connectedCallback() {
-      window.styleAppliedToDocument = Boolean(this.__appliedElement);
-    }
-  }
-  window.customElements.define('special-style', SpecialStyle);
-
-})();
-</script>
+<link rel="import" href="csp-import-2.html">
+<script src="csp-script-1.js"></script>
